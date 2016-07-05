@@ -64,6 +64,14 @@ document.addEventListener("DOMContentLoaded", function(){
   // this function will print the multiple choice answers and It grabs the needed answer-array with the help of the current-variable
 
 
+  var h1 = document.createElement("h1");  //using the DOM to creating the h1 tag
+
+  var h1Cont = document.createTextNode("Tic Tac Toe");
+
+  h1.appendChild(h1Cont);  // appending the node to the tag
+
+  document.body.appendChild(h1); //  appending the tag to the body
+
     var answers = allQuestions[Object.keys(allQuestions)[current]]; //accessing the answers part of the object
 
     choices.innerHTML = ''; //resets the answers so that the previous answers dont bleed over
