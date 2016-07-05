@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
   var h1 = document.createElement("h1");  //using the DOM to creating the h1 tag
 
-  var h1Cont = document.createTextNode("Tic Tac Toe");
+  var h1Cont = document.createTextNode("Trivia Game");
 
   h1.appendChild(h1Cont);  // appending the node to the tag
 
