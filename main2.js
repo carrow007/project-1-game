@@ -5,14 +5,20 @@
 
 
 document.addEventListener("DOMContentLoaded", function(){
+
+
+
   var board = document.getElementsByClassName('questions')[0];
   var choices = document.getElementsByClassName('answers')[0];
   var result = document.getElementsByClassName('result')[0];
+  // var player1 = +prompt("Enter first player name");
+  // var player2 = +prompt("Enter second player name"); // trying to add in 2 players and going to start here.
+  //  alert(player1 + player2);
   var current = 0;
 
     // trying out obj.key...
     // this object holds the questions and the answers. the obj.key should ennumerate over this to return the right answer in the array. when it hits the
-    //nuber at the end of the array it will know which answer is a correct answer
+    // number at the end of the array it will know which answer is a correct answer
       allQuestions = {
         'Who averaged one patent for every three days of his life?': ["Thomas Edision", "Benjamin Franklin", "Walt Disney", "Steve Jobs", 0],
 

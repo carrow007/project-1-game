@@ -1,3 +1,108 @@
+
+
+
+
+document.addEventListener("DOMContentLoaded", function(){
+
+
+var playerOne = true;
+var playerTwo = false;
+var row = 6;
+var column = 6;
+var pieces = []
+// var fullBoard = [];
+
+// In order: USA, Paraguay, Uruguay, West Australia, Persia, France, Ukraine, Chinese Empire, Brazil, Kingdom of Romania,
+// Kingdom of Norway, Siam, Japanese Empire, Kingdom of Italy, Russian Empire, Timor, Denmark, Chile.
+var fullBoard = ["http://i.imgur.com/YKzCeGb.jpg?1", "http://i.imgur.com/EToBKvP.jpg?1", "http://i.imgur.com/S2w5qB4.jpg?1",
+"http://i.imgur.com/pZJ45Zo.jpg?1", "http://i.imgur.com/btPfvgE.jpg?1", "http://i.imgur.com/wgEiBui.jpg?1", "http://i.imgur.com/7einjUS.jpg?1",
+"http://i.imgur.com/bBtFWxU.jpg?1", "http://i.imgur.com/JD8RrsY.jpg?1", "http://i.imgur.com/CXaNJ8z.jpg?1", "http://i.imgur.com/D9pf3gd.jpg?1",
+"http://i.imgur.com/JHDRuQI.jpg?1", "http://i.imgur.com/qkr392X.jpg?1", "http://i.imgur.com/j56Zor1.jpg?1", "http://i.imgur.com/Rey4ryX.jpg?1",
+"http://i.imgur.com/zYnE1to.jpg?1", "http://i.imgur.com/KLygLjX.jpg?1", "http://i.imgur.com/Guch6ja.jpg?1"]
+
+
+
+var title = document.createElement("h1")
+var titleText = document.createTextNode("Memory Game")
+title.appendChild(titleText)
+document.body.appendChild(title)
+
+
+var gameBoard = document.createElement("table"); //creating the gameboard
+
+ for(var i = 1; i <=row; i++){        //  loops through the table to create the rows
+   var tr = document.createElement("tr");
+   tr.setAttribute("id", "rowId");
+   for(var j = 1; j <=column; j++){   // loops through the table to create the columns
+
+     var td = document.createElement("td");
+     td.setAttribute("id", "columnId");
+     var tdCont = document.createTextNode("");
+     td.appendChild(tdCont);
+     tr.appendChild(td);
+     gameBoard.appendChild(tr);       // appending the rows + columns + content of each.
+   }
+ }
+
+ document.body.appendChild(gameBoard); // puts on the body of the html.
+
+
+// // fucntion MatchingSquares() {    // try this approach later...
+
+//   fullBoard.push(this.getAttribute(td));
+//   console.log(this.getAttribute(td));
+
+
+// }
+
+
+
+
+
+
+
+
+
+function createButton(){
+   var button = document.createElement("button");
+   var buttonText =document.createTextNode("Play Again?");
+   button.appendChild(buttonText);
+   document.body.appendChild(button);
+   button.addEventListener("click", function(){
+     reset();
+   });
+ }
+ createButton();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // document.addEventListener("DOMContentLoaded", function(){
 
 
@@ -165,77 +270,7 @@
 // alert("hello!")
 
 
-document.addEventListener("DOMContentLoaded", function(){
 
-
-var playerOne = true;
-var playerTwo = false;
-var row = 6;
-var column = 6;
-var pieces = []
-// var fullBoard = [];
-
-// In order: USA, Paraguay, Uruguay, West Australia, Persia, France, Ukraine, Chinese Empire, Brazil, Kingdom of Romania,
-// Kingdom of Norway, Siam, Japanese Empire, Kingdom of Italy, Russian Empire, Timor, Denmark, Chile.
-var fullBoard = ["http://i.imgur.com/YKzCeGb.jpg?1", "http://i.imgur.com/EToBKvP.jpg?1", "http://i.imgur.com/S2w5qB4.jpg?1",
-"http://i.imgur.com/pZJ45Zo.jpg?1", "http://i.imgur.com/btPfvgE.jpg?1", "http://i.imgur.com/wgEiBui.jpg?1", "http://i.imgur.com/7einjUS.jpg?1",
-"http://i.imgur.com/bBtFWxU.jpg?1", "http://i.imgur.com/JD8RrsY.jpg?1", "http://i.imgur.com/CXaNJ8z.jpg?1", "http://i.imgur.com/D9pf3gd.jpg?1",
-"http://i.imgur.com/JHDRuQI.jpg?1", "http://i.imgur.com/qkr392X.jpg?1", "http://i.imgur.com/j56Zor1.jpg?1", "http://i.imgur.com/Rey4ryX.jpg?1",
-"http://i.imgur.com/zYnE1to.jpg?1", "http://i.imgur.com/KLygLjX.jpg?1", "http://i.imgur.com/Guch6ja.jpg?1"]
-
-
-
-var title = document.createElement("h1")
-var titleText = document.createTextNode("Memory Game")
-title.appendChild(titleText)
-document.body.appendChild(title)
-
-
-var gameBoard = document.createElement("table"); //creating the gameboard
-
- for(var i = 1; i <=row; i++){        //  loops through the table to create the rows
-   var tr = document.createElement("tr");
-   tr.setAttribute("id", "rowId");
-   for(var j = 1; j <=column; j++){   // loops through the table to create the columns
-
-     var td = document.createElement("td");
-     td.setAttribute("id", "columnId");
-     var tdCont = document.createTextNode("");
-     td.appendChild(tdCont);
-     tr.appendChild(td);
-     gameBoard.appendChild(tr);       // appending the rows + columns + content of each.
-   }
- }
-
- document.body.appendChild(gameBoard); // puts on the body of the html.
-
-
-// // fucntion MatchingSquares() {    // try this approach later...
-
-//   fullBoard.push(this.getAttribute(td));
-//   console.log(this.getAttribute(td));
-
-
-// }
-
-
-
-
-
-
-
-
-
-function createButton(){
-   var button = document.createElement("button");
-   var buttonText =document.createTextNode("Play Again?");
-   button.appendChild(buttonText);
-   document.body.appendChild(button);
-   button.addEventListener("click", function(){
-     reset();
-   });
- }
- createButton();
 
 
 
@@ -248,28 +283,28 @@ function createButton(){
 // its a match and they stay on the board. If not then the cards will flip
 // back.
 
-var boardPieces = shuffle(pieces);
-  for (i = 0; i < boardPieces.length; i++) {   // looping through the full board
-     td = document.getElementById("columnId");
-     td.appendChild(boardPieces[i]);
+// var boardPieces = shuffle(pieces);
+//   for (i = 0; i < boardPieces.length; i++) {   // looping through the full board
+//      td = document.getElementById("columnId");
+//      td.appendChild(boardPieces[i]);
 
 
-}
+// }
 
-var newBoard = shuffle(fullBoard);
+// var newBoard = shuffle(fullBoard);
 
-for (var i = 1; i < td/2; i++) {  //
-  var pieceOne = document.getElementById(columnId);
-  var pieceTwo = document.getElementById(columnId+td/2);
-
-
-  pieceOne.setAttribute("data-image", columnId);
-  pieceTwo.setAttribute("data-image", columnId);
+// for (var i = 1; i < td/2; i++) {  //
+//   var pieceOne = document.getElementById(columnId);
+//   var pieceTwo = document.getElementById(columnId+td/2);
 
 
-  var picOne
-  var picTo
-}
+//   pieceOne.setAttribute("data-image", columnId);
+//   pieceTwo.setAttribute("data-image", columnId);
+
+
+//   var picOne
+//   var picTo
+// }
 
 
 
