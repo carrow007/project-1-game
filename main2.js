@@ -58,6 +58,16 @@ document.addEventListener("DOMContentLoaded", function(){
 
  }
  createButton(); // calls button
+
+  var h1 = document.createElement("h1");  //using the DOM to creating the h1 tag
+
+  var h1Cont = document.createTextNode("Trivia Game");
+
+  h1.appendChild(h1Cont);  // appending the node to the tag
+
+  document.body.appendChild(h1); //  appending the tag to the body
+
+
   function printQuestion(current) {// prints first question from the object to the game 'board'
 
 
@@ -69,14 +79,6 @@ document.addEventListener("DOMContentLoaded", function(){
   function printAnswers(current) {
   // this function will print the multiple choice answers and It grabs the needed answer-array with the help of the current-variable
 
-
-  var h1 = document.createElement("h1");  //using the DOM to creating the h1 tag
-
-  var h1Cont = document.createTextNode("Trivia Game");
-
-  h1.appendChild(h1Cont);  // appending the node to the tag
-
-  document.body.appendChild(h1); //  appending the tag to the body
 
     var answers = allQuestions[Object.keys(allQuestions)[current]]; //accessing the answers part of the object
 
@@ -96,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function(){
   function rightAnswer(clicked) {
 
     var createDiv = document.createElement('div');
-     var currentQues = document.createTextNode(current + 1);// creating the next question var/textnode
+    var currentQues = document.createTextNode(current + 1);// creating the next question var/textnode
     createDiv.appendChild(currentQues);
     if (clicked) {
       createDiv.className += 'right'; // creating a right div to keep tack of right guesses
