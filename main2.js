@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function(){
   // var player1 = +prompt("Enter first player name");
   // var player2 = +prompt("Enter second player name"); // trying to add in 2 players and going to start here.
   //  alert(player1 + player2);
+  // var playerOne = true;
   var current = 0;
 
     // trying out obj.key...
